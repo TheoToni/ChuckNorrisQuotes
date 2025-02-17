@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/Header";
-import Quote from "../components/Quote";
-import Footer from "../components/Footer";
+import Header from "../components/server/Header";
+import Quote from "../components/client/Quote";
+import Footer from "../components/server/Footer";
 
 const Home: React.FC = () => {
   return (
