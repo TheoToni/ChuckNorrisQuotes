@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 const Header: React.FC = () => {
   return (
-    <header className="p-4">
+    <header className="py-8">
       <Image
         src="layout-logo-w-s-weis.svg"
         alt="logo"

@@ -48,11 +48,13 @@ const Quote: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
+    <div>
       {error && <p className="text-red-500">Error: {error}</p>}
-      {quote && <p className="text-lg italic">{quote}</p>}
+      <div className="min-h-16">
+        {quote && <p className="text-lg italic">{quote}</p>}
+      </div>
       <button
-        className="bg-white text-black font-bold py-2 px-4 rounded mt-4 transition-transform duration-300 transform hover:scale-105"
+        className="bg-white text-black font-bold py-2 px-4 rounded mt-4 transition-colors duration-300 hover:bg-gray-200"
         onClick={fetchQuote}
         disabled={isLoading}
       >

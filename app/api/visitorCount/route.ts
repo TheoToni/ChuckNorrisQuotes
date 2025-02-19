@@ -9,17 +9,11 @@ const prisma = new PrismaClient();
 
 export async function POST() {
   try {
-    const existingRecord = await prisma.visitorCount.findFirst();
-    if (existingRecord) {
-      await prisma.visitorCount.update({
-        where: { id: existingRecord.id },
-        data: { count: { increment: 1 } },
-      });
-    } else {
-      await prisma.visitorCount.create({
-        data: { count: 1 },
-      });
-    }
+    await prisma.visitorCount.upsert({
+      where: { id: 1 }, // Assuming ID is always 1
+      update: { count: { increment: 1 } },
+      create: { id: 1, count: 1 }, // Assuming ID is always 1
+    });
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error updating visitor count:", error);
