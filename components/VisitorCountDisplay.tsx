@@ -1,8 +1,14 @@
+/* This is the VisitorCountDisplay component, it displays the visitor count. (Frontend logic)
+    The Data is fetched from the backend and displayed in the footer.
+    The visitor count is updating on page refresh due to the useEffect hook.
+    It´s also possible to use websockets or Sever Side Events for real-time updates.
+  */
+
 "use client";
 
-import React, { useState, useEffect, JSX } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function VisitorCountDisplay(): JSX.Element {
+export default function VisitorCountDisplay() {
   const [visitorCount, setVisitorCount] = useState<number>(0);
 
   useEffect(() => {

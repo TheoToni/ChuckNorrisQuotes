@@ -1,24 +1,22 @@
+/* This is the Home page, it contains the Quote component and an responsive image of Chuck Norris */
+
 import React from "react";
-import Header from "../components/server/Header";
-import Quote from "../components/client/Quote";
-import Footer from "../components/server/Footer";
+import Quote from "@/components/Quote";
 import Image from "next/image";
 
 const Home: React.FC = () => {
   return (
-    <div className="container mx-auto p-4 flex flex-col min-h-screen">
-      <Header />
-      <div className="grid md:grid-cols-[.5fr_1fr] gap-4 flex-grow justify-center items-center grid-cols-1">
+    <div className="grid sm:grid-cols-[.5fr_1fr] gap-4  justify-center items-center grid-cols-1 ">
+      <div className="relative md:h-96 h-64 ">
         <Image
           src="/chuck.png"
           alt="A cool Chuck Norris"
-          width={150}
-          height={225}
-          layout="responsive"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          style={{ objectFit: "contain" }}
         />
-        <Quote />
       </div>
-      <Footer />
+      <Quote />
     </div>
   );
 };

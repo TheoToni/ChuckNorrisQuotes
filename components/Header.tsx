@@ -1,3 +1,5 @@
+/* This is the Header component, it displays the W&S logo */
+
 import React from "react";
 import Image from "next/image";
 const Header: React.FC = () => {

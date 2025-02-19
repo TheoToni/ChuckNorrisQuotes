@@ -1,14 +1,27 @@
+
 generator client {
   provider = "prisma-client-js"
 }
 
+// This block configures the database connection.
 datasource db {
+  // Specifies that the database is a PostgreSQL database.
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+// This block defines the data model for the VisitorCount table.
 model VisitorCount {
   id        Int      @id @default(autoincrement())
+  // The `@id` attribute marks this field as the primary key.
+  // The `@default(autoincrement())` attribute specifies that the ID should be automatically incremented by the database.
+  
+  // Defines a DateTime field named "date" that stores the date and time of the visitor count.
   date      DateTime @default(now()) @unique
+  // The `@default(now())` attribute specifies that the default value for this field should be the current date and time.
+  // The `@unique` attribute ensures that each date is unique in the table.
+
+  // Defines an integer field named "count" that stores the visitor count.
   count     Int      @default(1)
+  // The `@default(1)` attribute specifies that the default value for this field should be 1.
 }

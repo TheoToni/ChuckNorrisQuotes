@@ -1,3 +1,7 @@
+/* Here we define the API routes for the visitor count. The visitor count is stored in
+ the database and can be incremented by sending a POST request to the route. The current
+  count can be fetched by sending a GET request to the route. I use Prisma and their database here.*/
+
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 

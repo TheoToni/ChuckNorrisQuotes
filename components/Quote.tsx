@@ -1,26 +1,29 @@
-"use client"; // Marks the file as a client component in Next.js
+/* This is the Quote component, it fetches a random quote from the Chuck Norris API and displays it.
+   It also has a button to fetch a new quote. */
+
+"use client";
 import React, { useState, useEffect } from "react";
 
-// Defines the interface for quote data
 interface QuoteData {
   value: string;
 }
 
 const Quote: React.FC = () => {
-  // State for the quote, loading status, and error
   const [quote, setQuote] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // useEffect hook to fetch the quote on initial render
   useEffect(() => {
     fetchQuote();
   }, []);
 
-  // Function to fetch a new quote
+  /* It´s also possible to create a new route in our api folder for this fetch here
+      but I wanted to show how to fetch data directly from the client side and also keep it simple.
+  */
+
   const fetchQuote = async () => {
-    setIsLoading(true); // Sets loading state to true
-    setError(null); // Resets error state to null
+    setIsLoading(true);
+    setError(null);
 
     try {
       const response = await fetch(
@@ -30,12 +33,12 @@ const Quote: React.FC = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data: QuoteData = await response.json();
-      setQuote(data.value); // Sets the quote in the state
+      setQuote(data.value);
     } catch (err: any) {
-      setError(err.message); // Sets the error message in the state
+      setError(err.message);
       console.error("Error fetching the quote:", err);
     } finally {
-      setIsLoading(false); // Sets loading state to false
+      setIsLoading(false);
     }
   };
 
@@ -43,7 +46,6 @@ const Quote: React.FC = () => {
     <div className="p-4">
       {isLoading && <p>Loading quote...</p>}
       {error && <p className="text-red-500">Error: {error}</p>}
-
       {quote && <p className="text-lg italic">{quote}</p>}
       <button
         className="bg-white text-black font-bold py-2 px-4 rounded mt-4 transition-transform duration-300 transform hover:scale-105"
