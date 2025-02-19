@@ -49,7 +49,6 @@ const Quote: React.FC = () => {
 
   return (
     <div className="p-4">
-      {isLoading && <p>Loading quote...</p>}
       {error && <p className="text-red-500">Error: {error}</p>}
       {quote && <p className="text-lg italic">{quote}</p>}
       <button
@@ -57,7 +56,7 @@ const Quote: React.FC = () => {
         onClick={fetchQuote}
         disabled={isLoading}
       >
-        New Quote
+        {isLoading ? "Loading..." : "New Quote"}
       </button>
     </div>
   );
