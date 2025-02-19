@@ -32,7 +32,7 @@ export async function POST() {
   }
 }
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     const record = await prisma.visitorCount.findFirst();
     const count = record ? record.count : 0;
