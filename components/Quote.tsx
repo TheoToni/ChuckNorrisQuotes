@@ -34,9 +34,14 @@ const Quote: React.FC = () => {
       }
       const data: QuoteData = await response.json();
       setQuote(data.value);
-    } catch (err: any) {
-      setError(err.message);
-      console.error("Error fetching the quote:", err);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+        console.error("Error fetching the quote:", err);
+      } else {
+        setError("An unexpected error occurred.");
+        console.error("An unexpected error occurred:", err);
+      }
     } finally {
       setIsLoading(false);
     }
