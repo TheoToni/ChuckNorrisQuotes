@@ -9,7 +9,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function VisitorCountDisplay() {
-  const [visitorCount, setVisitorCount] = useState<number>(0);
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
 
   useEffect(() => {
     async function fetchAndIncrement(): Promise<void> {
@@ -35,6 +35,11 @@ export default function VisitorCountDisplay() {
 
     fetchAndIncrement();
   }, []);
+
+  // Show loading state instead of 0
+  if (visitorCount === null) {
+    return <div>Besucher: ...</div>;
+  }
 
   return <div>Besucher: {visitorCount}</div>;
 }
