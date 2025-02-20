@@ -58,7 +58,7 @@ const Quote: React.FC = () => {
         onClick={fetchQuote}
         disabled={isLoading}
       >
-        {isLoading ? "Loading..." : "New Quote"}
+        {isLoading ? "Loading..." : "Tell me Chuck"}
       </button>
     </div>
   );
