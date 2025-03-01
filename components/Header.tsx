@@ -2,15 +2,19 @@
 
 import React from "react";
 import Image from "next/image";
-const Header: React.FC = () => {
+import Link from "next/link";
+
+const Header = () => {
   return (
     <header className="py-8">
-      <Image
-        src="layout-logo-w-s-weis.svg"
-        alt="logo"
-        width={100}
-        height={60}
-      />
+      <Link href="/" className="inline-block">
+        <Image
+          src="layout-logo-w-s-weis.svg"
+          alt="logo"
+          width={100}
+          height={60}
+        />
+      </Link>
     </header>
   );
 };

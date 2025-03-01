@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useQuote } from "../hooks/useQuote";
 
-const Quote: React.FC = () => {
+const Quote = () => {
   const { quote, isLoading, error, fetchQuote } = useQuote();
 
   useEffect(() => {

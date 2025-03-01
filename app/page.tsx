@@ -4,7 +4,7 @@ import React from "react";
 import Quote from "@/components/Quote";
 import Image from "next/image";
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <div className="grid sm:grid-cols-[1fr_1fr] gap-4  justify-center items-center grid-cols-1 ">
       <div className="relative md:h-96 h-64 w-full">

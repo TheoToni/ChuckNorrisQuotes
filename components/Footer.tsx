@@ -3,9 +3,9 @@
 import React from "react";
 import VisitorCountDisplay from "./VisitorCountDisplay";
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
-    <footer className=" text-white text-xl py-8">
+    <footer className=" text-white text-xl py-8 mt-auto">
       <VisitorCountDisplay />
     </footer>
   );
